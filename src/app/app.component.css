@@ -2,8 +2,57 @@
   height: 100vh;
   width: 100vw;
   background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.inner-container {
+  color: white;
+  white-space: pre-line;
+  font-size: 2rem;
+  flex: 0 1 900px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+button {
+  padding: 10px;
+  font-size: 2rem;
+  font-weight: bold;
+
+  border: none;
+}
+
+button:hover {
+  transform: translate(6px, 6px);
+  box-shadow: none;
+}
+
+.yellow {
+  background-color: #FEEA00 ;
+  box-shadow: 6px 6px 0px 0px #93FE00 ;
+}
+
+
+.green {
+  background-color: #93FE00;
+  box-shadow: 6px 6px 0px 0px #FEEA00 ;
+}
+
+.displayNone {
+  display: none;
+}
 
 .aram {
   position: absolute;
@@ -22,3 +71,67 @@
   bottom: 20px;
   right: 50px;
 }
+
+@keyframes rotate {
+  0%, 50%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(-10px) translateY(10px);
+
+  }
+  75% {
+    transform: translateX(10px) translateY(-10px);
+  }
+
+}
+
+@keyframes bounce {
+  0%, 50%, 100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(-10deg) ;
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+
+}
+
+.dance {
+  animation-name: rotate, bounce;
+  animation-duration: 2s, 1s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.cake {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+}
+
+.blowing-away {
+  animation-name:  shrink;
+  animation-duration: 2000ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+
+
+
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform:  scale(0);
+    opacity: 0;
+  }
+}
+
+

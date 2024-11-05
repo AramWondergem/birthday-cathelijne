@@ -1,17 +1,22 @@
 <div class="main-container">
 
-  <div>
+  <div class="inner-container">
     <p>
-
+      {{text()}}
     </p>
-    <div>
+    <div class="button-wrapper">
+
+      @for(button of buttons(); track button.name) {
+        <button [ngClass]="button.color" (click)="button.nextStep()">{{button.name}}</button>
+      }
 
     </div>
   </div>
 
 </div>
 
-<img src="assets/aram.png" height="200" class="aram"/> >
+<img src="assets/aram.png" height="200" class="aram" [ngClass]="{'dance' : isDancing()}"/>
 <img src="assets/cahtelijneCircle.png" height="260" class="cathelijne"
-     alt="">
-<img src="assets/JuliaCircle.png" height="260"  alt="" class="julia">
+     alt="" [ngClass]="{'displayNone' : !isCath(), 'dance' : isDancing()}">
+<img src="assets/JuliaCircle.png" height="260"  alt="" class="julia" [ngClass]="{'dance' : isDancing()}">
+<img src="assets/cake-8470018_1280.jpg" height="300" alt="" class="cake" [ngClass]="{'displayNone' : !isShowingCake(), 'blowing-away' : isBlowingAway(), 'rocking-away' : isBlowingAway()}">
